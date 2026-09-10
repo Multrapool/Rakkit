@@ -32,7 +32,6 @@ const LOG_NAME := "ModLoader"
 
 
 func _init() -> void:
-	print("mod loader")
 	# if mods are not enabled - don't load mods
 	if ModLoaderStore.REQUIRE_CMD_LINE and not _ModLoaderCLI.is_running_with_command_line_arg("--enable-mods"):
 		return
@@ -43,7 +42,7 @@ func _init() -> void:
 	if not ModLoaderStore.has_feature.editor and _ModLoaderFile.file_exists(_ModLoaderPath.get_path_to_hook_pack()):
 		_load_mod_hooks_pack()
 
-	# Rotate the log files once on startup.z
+	# Rotate the log files once on startup.
 	ModLoaderLog._rotate_log_file()
 
 	if not ModLoaderStore.ml_options.enable_mods:
